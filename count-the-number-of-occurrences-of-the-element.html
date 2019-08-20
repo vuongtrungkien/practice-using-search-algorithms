@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count the number of occurrences of the element</title>
+</head>
+<body>
+<p id="Array"></p>
+<p id="retval"></p>
+<p id="min"></p>
+<p id="max"></p>
+
+<script>
+    let num = [];
+    let countnum = 0;
+
+    function createNumber() {
+        for (let i = 0; i < 100; i++) {
+            num[i] = Math.round(Math.random() * 100);
+        }
+    }
+
+    createNumber();
+
+    function count(arr, data) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == data) {
+                ++countnum;
+            }
+
+        }
+        return countnum;
+    }
+
+    function findMin(arr) {
+        let min = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    function findMax(arr) {
+        let max = arr[0];
+        for (let i = 1; i < arr.length; ++i) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+
+    let min = findMin(num);
+    let max = findMax(num);
+
+    let val = parseInt(prompt(""));
+
+    let contNum = count(num, val);
+
+
+    document.getElementById("Array").innerHTML = num;
+    document.getElementById("retval").innerHTML = "Found " + contNum + " occurrences of " + val + ".";
+    document.getElementById("min").innerHTML ="The minimum value is :  "+  min;
+    document.getElementById("max").innerHTML ="The maximum value is :  "+  max;
+
+
+</script>
+</body>
+</html>
